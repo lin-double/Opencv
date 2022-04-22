@@ -4,7 +4,7 @@
 #include<string>
 using namespace std;
 using namespace cv;
-//Î´³É¹¦ÊµÏÖ
+//æœªæˆåŠŸå®ç°
 int main(int argc, int **argv)
 {
 	vector<string> files;
@@ -16,11 +16,11 @@ int main(int argc, int **argv)
 		images.push_back(imread(files[i]));
 		//imshow(files[i].c_str(), imread(files[i]));
 		}
-	//ÉèÖÃÆ´½ÓÄ£Ê½
+	//è®¾ç½®æ‹¼æ¥æ¨¡å¼
 	Mat result1;
 	Stitcher::Mode mode = Stitcher::PANORAMA;
 	Ptr<Stitcher> stitcher = Stitcher::create(mode);
-	//Æ´½Ó·½Ê½-¶àÍ¨µÀÈÚºÏ
+	//æ‹¼æ¥æ–¹å¼-å¤šé€šé“èåˆ
 	auto blenter = detail::Blender::createDefault(detail::Blender::MULTI_BAND);
 	stitcher->setBlender(blenter);
 	Stitcher::Status status = stitcher->stitch(images, result1);
@@ -30,8 +30,9 @@ int main(int argc, int **argv)
 		return EXIT_FAILURE;
 	}
 	imwrite("E:/OpenCV_image/result1.jpg", result1);
-	//imshow("Æ´½ÓÍ¼Ïñ", result1);
+	//imshow("æ‹¼æ¥å›¾åƒ", result1);
 	//waitKey(0);
 	return 0;
+	
 }
 
