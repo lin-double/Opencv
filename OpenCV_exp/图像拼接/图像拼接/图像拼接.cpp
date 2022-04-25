@@ -32,7 +32,6 @@ int main(int argc, int **argv)
 	imwrite("E:/OpenCV_image/result1.jpg", result1);
 	//imshow("拼接图像", result1);
 	//waitKey(0);
-	return 0;
-	
+	return 0;	
 }
 
